@@ -1,0 +1,14 @@
+# Ignorar arquivos de sistema e pastas de usuário fora do projeto
+../../*
+../../../*
+
+# Ignorar arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignorar arquivos temporários
+*.log
+*.tmp
+*.swp
+*~
