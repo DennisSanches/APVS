@@ -326,15 +326,18 @@ form.addEventListener('submit', (e) => {
         return;
     }
     
-    // Preparar mensagem para WhatsApp
+    // Preparar mensagem para WhatsApp com dados do formulário
     const placaFormatada = placa.toUpperCase();
-    const mensagem = `Olá Victor! Meu nome é ${nome} e minha placa é ${placaFormatada}. Quero receber minha cotação APVS.`;
+    const mensagem = `Olá, gostaria de saber mais.\n\n📋 *Dados para cotação:*\n👤 Nome: ${nome}\n🚗 Placa: ${placaFormatada}`;
     
     // Codificar mensagem para URL
     const mensagemCodificada = encodeURIComponent(mensagem);
     
-    // Construir URL do WhatsApp
-    const whatsappURL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${mensagemCodificada}`;
+    // Número do WhatsApp (11) 96061-7323
+    const numeroWhatsApp = '5511960617323';
+    
+    // Redirecionar para WhatsApp com a mensagem
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagemCodificada}`;
     
     // Abrir WhatsApp em nova aba
     window.open(whatsappURL, '_blank', 'noopener,noreferrer');
