@@ -688,6 +688,45 @@ textarea {
     opacity: 0.95;
 }
 
+/* Benefits badges - Mobile First */
+.sobre__benefits-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-lg) 0;
+}
+
+.benefit-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(0, 61, 130, 0.1) 100%);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: var(--border-radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.benefit-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.benefit-text {
+    line-height: 1;
+}
+
+@media (max-width: 480px) {
+    .benefit-badge {
+        flex: 1 1 100%;
+        justify-content: center;
+        padding: var(--spacing-md);
+    }
+}
+
 .sobre__contact-list {
     display: flex;
     flex-direction: column;
@@ -1637,7 +1676,7 @@ textarea {
 .coverage-slide {
     min-width: 100%;
     min-height: 650px;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -1645,6 +1684,45 @@ textarea {
     justify-content: center;
     padding: var(--spacing-2xl) var(--spacing-xl);
     position: relative;
+}
+
+/* Slide responsivo com imagens diferentes para mobile e desktop */
+.coverage-slide--responsive {
+    position: relative;
+}
+
+.coverage-slide__mobile,
+.coverage-slide__desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Mobile: imagem completa visível */
+.coverage-slide__mobile {
+    display: block;
+    background-size: contain;
+}
+
+/* Desktop: escondido no mobile */
+.coverage-slide__desktop {
+    display: none;
+}
+
+/* Desktop: imagem completa visível */
+@media (min-width: 769px) {
+    .coverage-slide__mobile {
+        display: none;
+    }
+    
+    .coverage-slide__desktop {
+        display: block;
+        background-size: contain;
+    }
 }
 
 .coverage-content {
